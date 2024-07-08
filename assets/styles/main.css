@@ -1,8 +1,9 @@
 :root{
   --background-color: #ffffff;
-  --brand-primary: #ffffff;
-  --brand-secondary: #cccccc;
-  --brand-font: Helvetica;
+  --header-color: #ffffff;
+  --brand-primary: #577139;
+  --brand-secondary: #a2c6a2;
+  --brand-font: Montserrat, "Segoe UI Emoji", "Microsoft YaHei", "Arial Unicode MS";
 }
 
 
@@ -11,30 +12,45 @@ body{
   font-family: var(--brand-font);
 }
 
+.logo {
+  width: 300px;
+  height: 300px;
+
+}
+
 header{
+  color: var(--header-color);
+  background-color: var(--brand-primary);
   width: 100%;
   text-align: center;
 }
 
 main{
+  padding-left: 1em;
   width: 100%;
 }
 
 footer{
-  background-color: var(--brand-secondary);
+  background-color: var(--brand-primary);
   position: fixed;
   width: 100%;
   left: 0;
   bottom: 0; 
   height: 40px;
-  padding: 5px;
+  padding: 1em;
 }
 
 .footer-left {
-  width: 40px;
+  width: 20%;
 }
 
 .footer-left img{
   width: 40px;
   height: 40px;
+}
+
+.footer-right {
+  margin-left: 1em;
+  color: var(--header-color);
+  font-size: smaller;
 }
