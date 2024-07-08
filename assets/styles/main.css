@@ -1,0 +1,40 @@
+:root{
+  --background-color: #ffffff;
+  --brand-primary: #ffffff;
+  --brand-secondary: #cccccc;
+  --brand-font: Helvetica;
+}
+
+
+body{
+  background-color: var(--background-color);
+  font-family: var(--brand-font);
+}
+
+header{
+  width: 100%;
+  text-align: center;
+}
+
+main{
+  width: 100%;
+}
+
+footer{
+  background-color: var(--brand-secondary);
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0; 
+  height: 40px;
+  padding: 5px;
+}
+
+.footer-left {
+  width: 40px;
+}
+
+.footer-left img{
+  width: 40px;
+  height: 40px;
+}
