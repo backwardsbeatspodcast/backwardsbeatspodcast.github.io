@@ -2,19 +2,30 @@
 <html lang="en">
   <head>
     <title>Backwards Beats Podcast</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/assets/styles/main.css">
+    <script src="https://unpkg.com/htmx.org@1.7.0"></script>
   </head>
   <body>
     <header>
-     <h1>Backwards Beats Podcast</h1> 
-     <div>
-      Coming Soon...
-     </div>
+      <h1>Backwards Beats Podcast</h1> 
     </header>
+    <main>
+      <div>
+        A weekly podcast where we explore <strong>Rolling Stone's 500 Best Albums of All Time</strong>.
+      </div>
+      <div>
+        <h2>Current Episodes</h2>
+      </div>
+      <div class="episode-list" hx-get="episodes/episodes.html" hx-trigger="load" hx-swap="innerHTML"> </div>
+    </main>
     <footer>
       <div class="footer-left">
         <img src="assets/images/tunawood_logo.jpeg" alt="A Tunawood Production">
-        
+      </div>
+      <div class="footer-right">
+       Copyright 2024 Tunawood Productions. 
       </div>
     </footer>
   </body>
