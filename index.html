@@ -1,33 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="assets/styles/style.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Backwards Beats Podcast</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/assets/styles/main.css">
-    <script src="https://unpkg.com/htmx.org@1.7.0"></script>
+    <script src="https://unpkg.com/htmx.org@2.0.1" integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/" crossorigin="anonymous"></script>
   </head>
   <body>
-    <header>
-      <h1>Backwards Beats Podcast</h1> 
-      <img class="logo" src="assets/images/bb-logo.png" alt="Backwards Beats Logo">
-    </header>
-    <main>
-      <div>
-        A weekly podcast where we explore <strong>Rolling Stone's 500 Best Albums of All Time</strong>.
+    <div class="container">
+      <div class="navbar">
+        <div hx-get="/_top-nav.html" hx-swap="innerHTML" hx-trigger="load" class="navbar__items">
+          <ul>
+            <li>Homes</li>
+            <li>Episodes</li>
+            <li>Blog</li>
+            <li>About</li>
+          </ul>
+          <!--<ul>
+            <li>Login</li>
+            <li class="cta">Sign Up</li>
+            </ul>-->
+        </div>
+    </div>
+    <div class="wrapper">
+      <div class="left__wrapper">
+        <div class="heading">
+          <h1>
+            Backwards Beats Podcast
+          </h1>
+          <p>
+          A weekly podcast where fellow musicians and friends <br>
+          Dan and Carl look back at <br>
+          <a href="https://www.rollingstone.com/music/music-lists/best-albums-of-all-time-1062063/">Rolling Stone's 500 Greatest Albums of All Time</a> 
+          <br>from the bottom up.
+          </p>
+        </div>
+        <!--div class="btn__container">
+          <button class="start">Start 14 days free trial</button>
+          <button><i class="fa-solid fa-circle-play"></i>Watch a demo</button>
+          </div-->
+
+          <div class="heading">
+            <h2>Latest Episodes</h2>
+          </div>
+          <div class="text__container">
+            <div hx-get="./episodes/episodes.html" hx-trigger="load">Get Some HTML</div>
+          </div>
+    </div>
+    <div class="right__wrapper">
+      <img src="./assets/images/logo.svg" alt="Backwords Beats Podcast" />
+      <div class="text__container">
+        <p>
+        Subscribe wherever you get your podcasts.
+        </p>
+        <hr>
+        <div class="icons">
+          <p><i class="fa-brands fa-spotify"></i> Spotify</p>
+          <p><i class="fa fa-podcast"></i> Apple podcasts</p>
+        </div>
       </div>
-      <div>
-        <h2>Current Episodes</h2>
-      </div>
-      <div class="episode-list" hx-get="episodes/episodes.html" hx-trigger="load" hx-swap="innerHTML"> </div>
-    </main>
-    <footer>
-      <span class="footer-left">
-        <img src="assets/images/tunawood_logo.jpeg" alt="A Tunawood Production">
-      </span>
-      <span class="footer-right">
-       Copyright 2024 Tunawood Productions. 
-      </span>
-    </footer>
+    </div>
+    </div>
+    </div>
   </body>
 </html>
