@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="/assets/styles/style.css" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Backwards Beats Podcast - A weekly podcast where we dive into Rolling Stone magazine's top 500 albums of all time from the bottom up..">
+    <title>Episode 2: Ask Rufus by Rufas - Backwards Beats Podcast</title>
     <!-- meta.html -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,32 +19,46 @@
     <meta name="twitter:title" content="Episode 002: ask_rufus by rufus,_chaka_khan - Backwards Beats">
     <meta name="twitter:description" content="Join Carl and Dan as they dive into ask_rufus by rufus,_chaka_khan in this episode of Backwards Beats.">
     <meta name="twitter:image" content="/assets/images/logo.svg"> <!-- Replace with the actual URL of the album cover image -->
-
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Backwards Beats Podcast</title>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="stylesheet" href="/assets/styles/style.css" />
     <script src="https://unpkg.com/htmx.org@2.0.1" integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div class="container">
-      <div class="navbar">
-        <div hx-get="/top-nav.html" hx-swap="innerHTML" hx-trigger="load" class="navbar__items"> </div>
-      </div>
-      <div class="wrapper">
-        <div class="left__wrapper">
-          <div hx-get="episode.html" hx-swap="innerHTML" hx-trigger="load"</div>
-        </div>
-        <footer>
-          <p>
-          Subscribe wherever you get your podcasts.
-          </p>
+    <header>
+      <img class="logo" src="/assets/images/logo.svg" alt="Backwards Beats Podcast" />
+      <h1>Backwards Beats Podcast</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/episodes">Episodes</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+    <main class="content">
+      <!-- Content will be dynamically injected here -->
+      <section>
+        <h2>Backwards Beats Episodes</h2>
+        <div class="podcast-links">
+          <p> Subscribe wherever you get your podcasts. </p>
           <hr>
           <div class="icons">
-            <p><i class="fa-brands fa-spotify"></i> Spotify</p>
-            <p><i class="fa fa-podcast"></i> Apple podcasts</p>
+            <span><i class="fa-brands fa-spotify"></i> Spotify</span>
+            <span><i class="fa fa-podcast"></i> Apple podcasts</span>
           </div>
-        </footer>
-      </div>
-    </div>
+        </div>
+      </section>
+      <section>
+        <div hx-get="episode.html" hx-swap="innerHTML" hx-trigger="load"</div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2024 Backwards Beats Podcast. All Rights Reserved.</p>
+    </footer>
   </body>
 </html>
+

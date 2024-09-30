@@ -2,7 +2,9 @@
 
 :root {
   --blue: #112132;
+  --lightblue: #224466;
   --white: #fff;
+  --black: #000;
   --yellow: #fbc14c;
 }
 
@@ -12,6 +14,131 @@
   font-family: "Poppins", sans-serif;
 }
 
+body {
+  background: var(--blue);
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+a {
+  color: var(--black);
+  font-weight: bolder;
+}
+
+header, footer {
+  background-color: var(--blue);
+  color: var(--white);
+  padding: 1rem;
+  text-align: center;
+}
+
+header {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  flex-direction: row; /* Stack elements vertically */
+  text-align: center; /* Center text */
+}
+
+footer {
+  /*fit across the screen*/
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: var(--lightblue);
+  color: var(--white);
+  text-align: center;
+  width: 100%;
+}
+
+hr {
+  border: solid var(--blue);
+  border-radius:  2px;
+  align-self: center;
+  width: 50%;
+  margin: .5rem 0;
+}
+
+ul li {
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+nav {
+  background-color: var(--lightblue);
+  padding: 0.5rem;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+nav ul li {
+  margin: 0;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem;
+}
+
+nav ul li a:hover {
+  color: var(--yellow);
+  border-radius: 4px;
+}
+
+.podcast-links{
+  margin: 1rem 0;
+}
+
+.logo {
+  margin-right: 1rem;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+} 
+.content {
+  padding: 1rem;
+  margin: auto;
+  margin-bottom: 2rem;
+  max-width: 800px;
+  background-color: #f4f4f4;
+}
+section {
+  padding: 1rem;
+  margin: 1rem 0;
+  background-color: #f9f9f9;
+}
+
+footer p {
+  font-size: 0.9rem;
+}
+
+.episode {
+  align-self: center;
+  width: 50%;
+  margin: 1rem 0;
+  padding-bottom: 1.5rem;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .content {
+    padding: 0.5rem;
+  }
+}
+
+/*
 body {
   background: var(--blue);
   color: var(--white);
@@ -87,13 +214,13 @@ li.cta:hover {
 .center__wrapper .text__container {
   display: flex;
   align-items: center;
-  color: lightgray; /* You may want to adjust the color if needed */
-  font-size: 0.8rem; /* You may want to adjust the font size if needed */
+  color: lightgray; 
+  font-size: 0.8rem; 
 }
 
 .center__wrapper .text__container i {
   font-weight: bold;
-  font-size: 1.3rem; /* You may want to adjust the font size if needed */
+  font-size: 1.3rem; 
   margin-left: 5px;
 }
 
@@ -226,4 +353,4 @@ li.cta:hover {
 }
 footer{
   padding: 2rem 0;
-}
+}*/

@@ -1,66 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Backwards Beats Podcast - A weekly podcast where we dive into Rolling Stone magazine's top 500 albums of all time from the bottom up..">
+    <title>Backwards Beats</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <link rel="stylesheet" href="assets/styles/style.css" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Backwards Beats Podcast</title>
     <script src="https://unpkg.com/htmx.org@2.0.1" integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div class="container">
-      <div class="navbar">
-        <div hx-get="./top-nav.html" hx-swap="innerHTML" hx-trigger="load" class="navbar__items">
-          <!--<ul>
-            <li>Login</li>
-            <li class="cta">Sign Up</li>
-            </ul>-->
-        </div>
-    </div>
-    <div class="wrapper">
-      <div class="left__wrapper">
-        <div class="heading">
-          <h1>
-            Backwards Beats Podcast
-          </h1>
-          <p>
-          A weekly podcast where fellow musicians and friends <br>
-          Dan and Carl look back at <br>
-          <a href="https://www.rollingstone.com/music/music-lists/best-albums-of-all-time-1062063/">Rolling Stone's 500 Greatest Albums of All Time</a> 
-          <br>from the bottom up.
-          </p>
-        </div>
-        <!--div class="btn__container">
-          <button class="start">Start 14 days free trial</button>
-          <button><i class="fa-solid fa-circle-play"></i>Watch a demo</button>
-          </div-->
-
-          <div class="heading">
-            <h2>Latest Episodes</h2>
-          </div>
-          <div class="text__container">
-            <div hx-get="./episodes/episodes.html" hx-trigger="load">Get Some HTML</div>
-          </div>
-    </div>
-    <div class="right__wrapper">
-      <img src="./assets/images/logo.svg" alt="Backwords Beats Podcast" />
-      <div class="text__container">
+    <header>
+      <img class="logo" src="assets/images/logo.svg" alt="Backwards Beats Podcast" />
+      <h1>Backwards Beats Podcast</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/episodes">Episodes</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+    <main class="content">
+      <!-- Content will be dynamically injected here -->
+      <section>
+        <h2>Welcome to Backwards Beats</h2>
         <p>
-        Subscribe wherever you get your podcasts.
+        A weekly podcast where fellow musicians and friends 
+        Dan and Carl look back at 
+        <a href="https://www.rollingstone.com/music/music-lists/best-albums-of-all-time-1062063/">Rolling Stone's 500 Greatest Albums of All Time</a> 
+        from the bottom up.
         </p>
-        <hr>
-        <div class="icons">
-          <p><i class="fa-brands fa-spotify"></i> Spotify</p>
-          <p><i class="fa fa-podcast"></i> Apple podcasts</p>
+        <div class="podcast-links">
+          <p> Subscribe wherever you get your podcasts. </p>
+          <hr>
+          <div class="icons">
+            <span><i class="fa-brands fa-spotify"></i> Spotify</span>
+            <span><i class="fa fa-podcast"></i> Apple podcasts</span>
+          </div>
         </div>
-      </div>
-    </div>
-    </div>
-    </div>
+      </section>
+      <section>
+        <h3>Latest Episodes</h3>
+        <div hx-get="/episodes/episodes.html" hx-trigger="load">Get Some HTML</div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2024 Backwards Beats Podcast. All Rights Reserved.</p>
+    </footer>
   </body>
 </html>
+
