@@ -6,22 +6,23 @@ from markdown2 import markdown
 
 # Step 1: Prompt for episode number
 def get_episode_path(episode_number):
-  base_path = "/Users/dwoodard/Library/CloudStorage/GoogleDrive-backwardsbeatspodcast@gmail.com/My Drive/Shows/Backwards Beats/Episodes"
-  episode_path = None
-  padded_episode_number = str(episode_number).zfill(3)
-
-  for folder in os.listdir(base_path):
-      if folder.startswith(f"Episode {padded_episode_number}"):
-        episode_path = os.path.join(base_path, folder)
-        break
-
-  if episode_path:
-      return find_audio_file(episode_path)
-  return None
+    base_path = "/Users/dwoodard/Library/CloudStorage/GoogleDrive-backwardsbeatspodcast@gmail.com/My Drive/Shows/Backwards Beats/Episodes"
+    episode_path = None
+    padded_episode_number = str(episode_number).zfill(3)
+    
+    for folder in os.listdir(base_path):
+        # Using == for string comparison instead of .equals()
+        if folder.startswith(f"Episode {padded_episode_number}"):
+            episode_path = os.path.join(base_path, folder)
+            break  # Move break inside the if statement
+    
+    if episode_path:
+        return find_audio_file(episode_path)
+    return None
 
 def find_audio_file(folder_path):
     for file_name in os.listdir(folder_path):
-        if file_name.endswith(".md"):
+        if file_name.endswith("Show Notes.md"):
             return os.path.join(folder_path, file_name)
 
 def truncate_to_word_boundary(text, limit):
