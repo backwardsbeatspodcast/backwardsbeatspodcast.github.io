@@ -9,6 +9,7 @@ def get_episode_path(episode_number):
     base_path = "/Users/dwoodard/Library/CloudStorage/GoogleDrive-backwardsbeatspodcast@gmail.com/My Drive/Shows/Backwards Beats/Episodes"
     episode_path = None
     padded_episode_number = str(episode_number).zfill(3)
+    print(f"Searching for Episode {padded_episode_number}...")
     
     for folder in os.listdir(base_path):
         # Using == for string comparison instead of .equals()
