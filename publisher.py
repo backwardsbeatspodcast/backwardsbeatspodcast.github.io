@@ -6,7 +6,7 @@ from markdown2 import markdown
 
 # Step 1: Prompt for episode number
 def get_episode_path(episode_number):
-    base_path = "/Users/dwoodard/Library/CloudStorage/GoogleDrive-backwardsbeatspodcast@gmail.com/My Drive/Shows/Backwards Beats/Episodes"
+    base_path = "/Users/dwoodard/Library/CloudStorage/GoogleDrive-backwardsbeatspodcast@gmail.com/My Drive/Shows/Backwards Beats/Backwards Beats Notebook/Episodes"
     episode_path = None
     padded_episode_number = str(episode_number).zfill(3)
     print(f"Searching for Episode {padded_episode_number}...")
