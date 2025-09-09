@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Podcast Segment Timer</title>
+    <style>
+      body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #111;
+        color: #fff;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 20px;
+      }
+
+      #configPanel, #displayPanel {
+        width: 100%;
+        max-width: 800px;
+        margin-top: 20px;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      textarea {
+        width: 100%;
+        height: 150px;
+        font-family: monospace;
+        font-size: 14px;
+      }
+
+      button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      #albumArt {
+        width: 300px;
+        height: 300px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px;
+        margin: 20px 0;
+      }
+
+      #segmentName {
+        font-size: 24px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      #progressContainer {
+        width: 100%;
+        background-color: #444;
+        height: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      #progressBar {
+        height: 100%;
+        background-color: #1db954;
+        width: 0%;
+        transition: width 1s linear;
+      }
+
+      label {
+        display: block;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>Podcast Segment Timer</h1>
+
+    <div id="configPanel">
+      <h2>Config</h2>
+      <label for="albumArtUrl">Album Art URL:</label>
+      <input type="text" id="albumArtUrl" style="width: 100%; padding: 8px;" placeholder="https://example.com/cover.jpg">
+      
+      <label for="episodeTitle">Episode Title:</label>
+      <input type="text" id="episodeTitle" style="width: 100%; padding: 8px;" placeholder="Episode Title">
+      
+      <label for="segmentsInput">Segments (one per line: name | duration in seconds):</label>
+      <textarea id="segmentsInput">Loading...</textarea>
+
+      <label>
+        <input type="checkbox" id="autoAdvance" checked> Auto-advance to next segment
+      </label>
+
+      <button onclick="startTimer()">Start Timer</button>
+    </div>
+
+    <div id="displayPanel" class="hidden">
+      <div id="albumArt"></div>
+      <div id="episodeTitleDisplay"></div>
+      <div id="segmentName"></div>
+      <div id="progressContainer">
+        <div id="progressBar"></div>
+      </div>
+    </div>
+
+    <script>
+      // Load the content of timer_data.html into the textarea
+      window.addEventListener('DOMContentLoaded', () => {
+        fetch('timer_data.html')
+          .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.text();
+          })
+          .then(data => {
+            document.getElementById('segmentsInput').value = data;
+          })
+          .catch(err => {
+            console.error('Failed to load timer_dater.html:', err);
+            document.getElementById('segmentsInput').value = 'Intro | 300\nTrack 1 | 300\nTrack 2 | 600\nAd Break | 90\nTrack 3 | 300\nWrap-Up | 300';
+          });
+      });
+
+      let segments = [];
+      let currentSegment = 0;
+      let elapsed = 0;
+      let interval;
+      let autoAdvance = true;
+
+      function startTimer() {
+        const lines = document.getElementById('segmentsInput').value.trim().split('\n');
+        segments = lines.map(line => {
+          const [name, duration] = line.split('|').map(s => s.trim());
+          return { name, duration: parseInt(duration) };
+        });
+
+        autoAdvance = document.getElementById('autoAdvance').checked;
+
+        const albumArtUrl = document.getElementById('albumArtUrl').value.trim();
+        document.getElementById('albumArt').style.backgroundImage = `url('${albumArtUrl}')`;
+
+        const episodeTitle = document.getElementById('episodeTitle').value.trim();
+        document.getElementById('episodeTitleDisplay').textContent = episodeTitle || "Podcast Episode";
+
+        document.getElementById('configPanel').classList.add('hidden');
+        document.getElementById('displayPanel').classList.remove('hidden');
+
+        runSegment();
+      }
+
+      function runSegment() {
+        if (currentSegment >= segments.length) {
+          document.getElementById('segmentName').textContent = "All done!";
+          document.getElementById('progressBar').style.width = "100%";
+          return;
+        }
+
+        const segment = segments[currentSegment];
+        document.getElementById('segmentName').textContent = segment.name;
+        elapsed = 0;
+        document.getElementById('progressBar').style.width = '0%';
+
+        if (interval) clearInterval(interval);
+
+        interval = setInterval(() => {
+          elapsed++;
+          const progress = Math.min(elapsed / segment.duration, 1);
+          document.getElementById('progressBar').style.width = (progress * 100) + '%';
+
+          if (progress >= 1) {
+            clearInterval(interval);
+            if (autoAdvance) {
+              currentSegment++;
+              runSegment();
+            }
+          }
+        }, 1000);
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (!autoAdvance && e.code === 'Space') {
+          e.preventDefault();
+          if (interval) clearInterval(interval);
+          currentSegment++;
+          runSegment();
+        }
+      });
+    </script>
+
+  </body>
+</html>
