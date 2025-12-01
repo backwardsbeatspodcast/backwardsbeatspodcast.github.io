@@ -36,7 +36,6 @@
       <button class="hamburger" aria-label="Toggle navigation">&#9776;</button>
       <ul class="nav-list">
         <li><a href="/">Home</a></li>
-        <li><a href="/episodes">Episodes</a></li>
         <li><a href="/blog">Blog</a></li>
         <li><a href="/about">About</a></li>
       </ul>
@@ -44,14 +43,8 @@
     <main class="content">
       <!-- Content will be dynamically injected here -->
       <section>
-        <h2>About Backwards Beats</h2>
         <div class="podcast-links">
-          <p> Subscribe wherever you get your podcasts. </p>
-          <hr>
-          <div class="icons">
-            <span><i class="fa-brands fa-spotify"></i> Spotify</span>
-            <span><i class="fa fa-podcast"></i> Apple podcasts</span>
-          </div>
+          <div hx-get="/listen.html" hx-trigger="load"></div>
         </div>
       </section>
       <section class="content">
