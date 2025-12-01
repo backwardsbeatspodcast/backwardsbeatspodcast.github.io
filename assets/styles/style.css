@@ -230,3 +230,76 @@ hr {
   }
 }
 
+/*-----------------------
+  Listen Platforms 
+-----------------------*/
+.listen-platforms {
+  margin: 2rem 0;
+}
+
+.platform-icons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+
+.platform-icons li a {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-decoration: none;
+}
+
+.platform-details summary {
+  cursor: pointer;
+  margin-top: 0.75rem;
+  font-weight: 600;
+}
+
+.platform-details summary:hover {
+  text-decoration: underline;
+}
+
+.show-all-btn {
+  background: #eee;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.show-all-btn:hover {
+  background: #e2e2e2;
+}
+
+/* Modal */
+.platforms-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(3px);
+}
+
+.platforms-modal-content {
+  background: white;
+  max-width: 650px;
+  margin: 5% auto;
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.close-modal {
+  background: transparent;
+  border: none;
+  font-size: 1.8rem;
+  float: right;
+  cursor: pointer;
+}
+

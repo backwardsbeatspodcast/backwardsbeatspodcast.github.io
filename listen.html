@@ -1,0 +1,50 @@
+<section class="listen-platforms">
+  <h3>Listen Wherever You Get Podcasts</h3>
+
+  <ul class="platform-icons top-four">
+    <li><a href="https://open.spotify.com/show/17fquDwyk4W0PBe672NL3i" title="Spotify"><i class="fa-brands fa-spotify"></i> Spotify</a></li>
+    <li><a href="https://podcasts.apple.com/podcast/id1783267808" title="Apple Podcasts"><i class="fa-brands fa-apple"></i> Apple Podcasts</a></li>
+    <li><a href="https://iheart.com/podcast/244991831" title="iHeartRadio"><i class="fa-solid fa-podcast"></i> iHeartRadio</a></li>
+    <li><a href="https://music.youtube.com/playlist?list=PLwwkDr1Aesx4lcpA25MrrCn-AALaBby6Z&si=tca4RjfsInJJ2vAu" title="YouTube Music"><i class="fa-brands fa-youtube"></i> YouTube Music</a></li>
+  </ul>
+
+  <button class="show-all-btn" id="open-platforms-modal">
+    More <i class="fa-solid fa-arrow-right"></i>
+  </button>
+</section>
+
+<!-- Modal -->
+<div id="platforms-modal" class="platforms-modal">
+  <div class="platforms-modal-content">
+    <button class="close-modal" id="close-platforms-modal">&times;</button>
+
+    <h3>All Listening Platforms</h3>
+
+    <ul class="platform-icons full-list">
+      <!-- The remaining items -->
+      <li><a href="https://open.spotify.com/show/17fquDwyk4W0PBe672NL3i" title="Spotify"><i class="fa-brands fa-spotify"></i> Spotify</a></li>
+      <li><a href="https://podcasts.apple.com/podcast/id1783267808" title="Apple Podcasts"><i class="fa-brands fa-apple"></i> Apple Podcasts</a></li>
+      <li><a href="https://iheart.com/podcast/244991831" title="iHeartRadio"><i class="fa-solid fa-podcast"></i> iHeartRadio</a></li>
+      <li><a href="https://music.youtube.com/playlist?list=PLwwkDr1Aesx4lcpA25MrrCn-AALaBby6Z&si=tca4RjfsInJJ2vAu" title="YouTube Music"><i class="fa-brands fa-youtube"></i> YouTube Music</a></li>
+      <li><a href="https://www.pandora.com/podcast/backwards-beats-podcast/PC:1001095574" title="Pandora"><i class="fa-solid fa-music"></i> Pandora</a></li>
+      <li><a href="https://music.amazon.com/podcasts/3ff8d499-3062" title="Amazon Music"><i class="fa-brands fa-amazon"></i> Amazon Music</a></li>
+      <li><a href="https://podcastaddict.com/feed/https%3A%2F%2Fbackwardsbeatspodcast.com%2Ffeed.xml" title="Podcast Addict"><i class="fa-solid fa-podcast"></i> Podcast Addict</a></li>
+      <li><a href="https://backwardsbeatspodcast.com/feed.xml" title="RSS"><i class="fa-solid fa-rss"></i> RSS</a></li>
+      <li><a href="https://deezer.com/show/1002339902" title="Deezer"><i class="fa-brands fa-deezer"></i> Deezer</a></li>
+      <li><a href="https://castbox.fm/vic/1783267808" title="Castbox"><i class="fa-solid fa-box"></i> Castbox</a></li>
+      <li><a href="https://pocketcasts.com" title="Pocket Casts"><i class="fa-solid fa-mobile-screen-button"></i> Pocket Casts</a></li>
+      <li><a href="https://overcast.fm/itunes1783267808" title="Overcast"><i class="fa-solid fa-cloud-sun"></i> Overcast</a></li>
+      <li><a href="https://castro.fm/itunes/1783267808" title="Castro"><i class="fa-solid fa-circle-play"></i> Castro</a></li>
+      <li><a href="https://app.podcastguru.io/podcast/1783267808" title="Podcast Guru"><i class="fa-solid fa-users"></i> Podcast Guru</a></li>
+      <li><a href="https://subscribeonandroid.com/backwardsbeatspodcast.com/feed.xml" title="Subscribe on Android"><i class="fa-brands fa-android"></i> Subscribe on Android</a></li>
+    </ul>
+
+  </div>
+</div>
+
+<script>
+const modal = document.getElementById("platforms-modal");
+document.getElementById("open-platforms-modal").onclick = () => modal.style.display = "block";
+document.getElementById("close-platforms-modal").onclick = () => modal.style.display = "none";
+window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
+</script>
